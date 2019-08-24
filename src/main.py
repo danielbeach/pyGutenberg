@@ -109,15 +109,20 @@ def main():
     ingest.load_csv_file()
     rows = ingest.iterate_csv_file()
     ingest.ftp_login()
+    t3 = time.time()
     for row in rows:
         file_location = ingest.obtain_directory_location(row["FileNumber"])
         file_list = ingest.iterate_directory(file_location)
         for file in file_list:
             ftp_download_path = ingest.find_text_file(file, row)
             ingest.download_file(ftp_download_path, row["FileNumber"])
+    t4 = time.time()
     ingest.iter_files
     t1 = time.time()
-    print(t1-t0)
+    total =  t1-t0
+    downloadtime = t4-t3
+    print(f'total time {total}')
+    print(f'download time {downloadtime}')
 
 
 if __name__ == '__main__':

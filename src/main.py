@@ -71,7 +71,7 @@ class Gutenberg():
                 return file
         print(f'No file found for {row}')
 
-    def download_file(self, file, filename):
+    def download_file(self, file: str, filename: str) -> None:
         try:
             with open('downloads/'+filename+'.txt', 'wb') as out_file:
                 self.ftp_object.retrbinary('RETR %s' % file, out_file.write)

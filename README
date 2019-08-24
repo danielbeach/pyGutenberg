@@ -1,0 +1,10 @@
+**Projet Gutenburg File Downloader**
+
+Give a CSV file with a list of file numbers, this code will
+download the given text files from a Gutenburg mirror, and
+strip out any reference to Project Gutenburg so the files
+can be used for any purpose without reference.
+
+**Usage**
+Open the csv file located at 'src/ingest_file/Gutenburg_files.csv',
+add the file numbers and then run <python src/main.py'
